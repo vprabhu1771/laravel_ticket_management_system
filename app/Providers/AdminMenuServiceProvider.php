@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 
+use App\Models\Category;
+
 class AdminMenuServiceProvider extends ServiceProvider
 {
     /**
@@ -24,6 +26,8 @@ class AdminMenuServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
+
+            $categoriesCount = Category::count();
 
             // Navbar items:
             $event->menu->add(
@@ -61,7 +65,9 @@ class AdminMenuServiceProvider extends ServiceProvider
                 [
                     'text' => 'Category',
                     'url' => 'categories',
-                    // 'can' => 'manage-blog',
+                    'icon' => 'fas fa-tags',
+                    'label' => $categoriesCount,
+                    'label_color' => 'info',
                 ],
                 [
                     'text' => 'pages',
