@@ -59,9 +59,9 @@ class AdminMenuServiceProvider extends ServiceProvider
             // Sidebar items:
             $event->menu->add(
                 [
-                    'text' => 'blog',
-                    'url' => 'admin/blog',
-                    'can' => 'manage-blog',
+                    'text' => 'Category',
+                    'url' => 'categories',
+                    // 'can' => 'manage-blog',
                 ],
                 [
                     'text' => 'pages',
