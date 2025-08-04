@@ -47,6 +47,15 @@ class AdminMenuServiceProvider extends ServiceProvider
                 ],
             );
 
+            // Dashboard Menu
+            $event->menu->add(
+                [
+                    'text' => 'Dashboard',
+                    'icon' => 'fas fa-fw fa-tachometer-alt',
+                    'url'  => 'dashboard',                    
+                ],
+            );
+
             // Sidebar items:
             $event->menu->add(
                 [
